@@ -10,13 +10,15 @@
   <h1>Class Attendance</h1>
 
   <div class="container">
+
     <input type="text" id="studentInput" placeholder="Enter student name">
+    <input type="text" id="phoneInput" placeholder="Phone number (optional)">
 
     <br>
 
     <button class="present" onclick="recordAttendance('Present')">Present</button>
     <button class="absent" onclick="recordAttendance('Absent')">Absent</button>
-    <button onclick="document.getElementById('studentInput').value=''">Reset</button>
+    <button onclick="document.getElementById('studentInput').value=''; document.getElementById('phoneInput').value=''">Reset</button>
     <button class="clear" onclick="clearAll()">Clear All</button>
 
     <p id="count">Present: 0 | Absent: 0</p>
@@ -24,7 +26,9 @@
     <table>
       <thead>
         <tr>
+          <th>ID</th>
           <th>Name</th>
+          <th>Phone</th>
           <th>Status</th>
           <th>Time</th>
           <th>Action</th>
@@ -32,12 +36,12 @@
       </thead>
       <tbody id="tableBody"></tbody>
     </table>
-  </div>
 
+  </div>
 
   <div class="footer-bar">
     <div class="scroll-text">
-       Contact Me: +201001176317 — Class Attendance System Made By Zeyad
+      Contact Me: +201001176317 — Class Attendance System Made By Zeyad
     </div>
   </div>
 

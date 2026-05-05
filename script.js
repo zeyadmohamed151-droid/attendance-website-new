@@ -1,5 +1,9 @@
 let records = JSON.parse(localStorage.getItem("attendance_records")) || [];
 
+function generateID() {
+  return "ID-" + Math.floor(Math.random() * 100000);
+}
+
 function refreshTable() {
   let tableBody = document.getElementById("tableBody");
   tableBody.innerHTML = "";
@@ -7,16 +11,28 @@ function refreshTable() {
   records.forEach(function(record, index) {
     let row = document.createElement("tr");
 
+    // ID
+    let idCell = document.createElement("td");
+    idCell.textContent = record.id;
+
+    // Name
     let nameCell = document.createElement("td");
     nameCell.textContent = record.name;
 
+    // Phone
+    let phoneCell = document.createElement("td");
+    phoneCell.textContent = record.phone || "N/A";
+
+    // Status
     let statusCell = document.createElement("td");
     statusCell.textContent = record.status;
     statusCell.style.color = record.status === "Present" ? "green" : "red";
 
+    // Time
     let timeCell = document.createElement("td");
     timeCell.textContent = record.time;
 
+    // Action
     let actionCell = document.createElement("td");
     let btn = document.createElement("button");
     btn.textContent = "Remove";
@@ -27,7 +43,10 @@ function refreshTable() {
 
     actionCell.appendChild(btn);
 
+
+    row.appendChild(idCell);
     row.appendChild(nameCell);
+    row.appendChild(phoneCell);
     row.appendChild(statusCell);
     row.appendChild(timeCell);
     row.appendChild(actionCell);
@@ -39,8 +58,11 @@ function refreshTable() {
 }
 
 function recordAttendance(status) {
-  let input = document.getElementById("studentInput");
-  let name = input.value.trim();
+  let nameInput = document.getElementById("studentInput");
+  let phoneInput = document.getElementById("phoneInput");
+
+  let name = nameInput.value.trim();
+  let phone = phoneInput.value.trim();
 
   if (!name) {
     alert("Please enter a name");
@@ -54,18 +76,23 @@ function recordAttendance(status) {
     return;
   }
 
-  let time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  let time = new Date().toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 
   records.push({
+    id: generateID(),
     name: name,
+    phone: phone || "N/A",
     status: status,
     time: time
   });
 
   localStorage.setItem("attendance_records", JSON.stringify(records));
 
-  input.value = "";
-  input.focus();
+  nameInput.value = "";
+  phoneInput.value = "";
 
   refreshTable();
 }
@@ -96,14 +123,15 @@ function updateCount() {
   let countEl = document.getElementById("count");
 
   if (countEl) {
-    countEl.textContent = "Present: " + present + " | Absent: " + absent;
+    countEl.textContent =
+      "Present: " + present + " | Absent: " + absent;
   }
 }
 
 window.onload = function () {
   let input = document.getElementById("studentInput");
 
-  input.addEventListener("keydown", function(e) {
+  input.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       recordAttendance("Present");
     }
