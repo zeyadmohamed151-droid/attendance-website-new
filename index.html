@@ -12,9 +12,14 @@
   <div class="container">
     <input type="text" id="studentInput" placeholder="Enter student name">
 
+    <br>
+
     <button class="present" onclick="recordAttendance('Present')">Present</button>
     <button class="absent" onclick="recordAttendance('Absent')">Absent</button>
+    <button onclick="document.getElementById('studentInput').value=''">Reset</button>
     <button class="clear" onclick="clearAll()">Clear All</button>
+
+    <p id="count">Present: 0 | Absent: 0</p>
 
     <table>
       <thead>
@@ -29,8 +34,13 @@
     </table>
   </div>
 
+
+  <div class="footer-bar">
+    <div class="scroll-text">
+       Contact Me: +201001176317 — Class Attendance System Made By Zeyad
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
-
