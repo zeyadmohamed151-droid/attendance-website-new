@@ -1,2 +1,2 @@
-# habit tracker
-just a habit tracker
+# attendance website
+Just an attendance website

@@ -81,3 +81,41 @@ Welcome!!
     }
 
     
+
+<button class="present" onclick="markIt('Present')">Present</button>
+
+<button class="absent" onclick="markIt('Absent')">Absent</button>
+
+<button class="clear" onclick="wipeEverything()">Clear All</button>
+
+<script>
+  let attendanceList = JSON.parse(localStorage.getItem("attendance")) || [];
+
+  function renderTable() {
+    let body = document.getElementById("tableBody");
+    body.innerHTML = "";
+
+    for (let i = 0; i < attendanceList.length; i++) {
+      let item = attendanceList[i];
+
+      let tr = "<tr>";
+      tr += "<td>" + item.name + "</td>";
+      tr += "<td>" + item.status + "</td>";
+      tr += "<td>" + item.time + "</td>";
+      tr += "</tr>";
+
+      body.innerHTML += tr;
+    }
+  }
+
+  function markIt(state) {
+    let input = document.getElementById("name");
+    let studentName = input.value.trim();
+
+    if (studentName == "") {
+      alert("Enter name first");
+      return;
+    }
+
+
+    //
