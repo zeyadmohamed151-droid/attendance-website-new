@@ -23,4 +23,6 @@ I made this website because when the teachers are taking the attendance i feel v
 - Time tracking for each record to make sure that everyone is one time
 
 ## Tech stack:
--made with visual studio code using HTML, CSS, And JS
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
