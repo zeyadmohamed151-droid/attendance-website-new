@@ -17,7 +17,8 @@ Here's some cool Features:
 5- Automatic attendance counting to make it much easier
 6- Time tracking for each record to make sure that everyone is one time
 
-for example i used my own phone number and name <img width="848" height="539" alt="image" src="https://github.com/user-attachments/assets/14272739-3205-4a31-ac18-c7cf881a59f8" /> you can see the time and the number of presents which make every thing easier
+for example i used my own phone number and name <img width="926" height="575" alt="image" src="https://github.com/user-attachments/assets/fad64ac8-f969-4d22-be9f-7fc9bb7d595d" />
+you can see the time and the number of presents which make every thing easier
 
 
 
